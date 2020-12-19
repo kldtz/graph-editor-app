@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <svg id="graph" data-graph-id="{{ graph_id }}" width=100% height=auto style="border: 1px solid" viewbox="0 0 800 600"></svg>
+</div>
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="/static/graph.js"></script>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    var del = function(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("DELETE", url, true);
+            xhr.onload = function () {
+                    document.querySelector('html').innerHTML = xhr.responseText;
+            }
+            xhr.send(null);
+    };
+</script>
+
+<ul>
+    {% for g in graphs %}
+    <li>
+            <a href="/graphs/show/{{g.id}}">{{g.graph_label}}</a>
+            <button onclick="del('/graphs/{{g.id}}');" ;>Delete</button>
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="/graphs/new">
+    <input type="submit" value="New Graph" />
+</form>
+{% endblock content %}
